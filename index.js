@@ -72,4 +72,4 @@ alert(users.findIndex(user => user.name == 'John'))
 
 alert(users.findLastIndex(user => user.name == 'John'))
 
-alert(user.name)
+ 
