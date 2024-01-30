@@ -77,18 +77,18 @@ console.log(newArray2)
 
 
 //.find
-let users = [
+let userz = [
     {id: 1, name: 'John'},
     {id: 2, name: 'Pete'},
     {id: 3, name: 'Mary'},
     {id: 4, name: 'John'}
 ]
 
-let user = users.find(item => item.id == 2)
+let user = userz.find(item => item.id == 2)
 
-console.log(users.findIndex(user => user.name == 'John'))
+console.log(userz.findIndex(user => user.name == 'John'))
 
-console.log(users.findLastIndex(user => user.name == 'John'))
+console.log(userz.findLastIndex(user => user.name == 'John'))
 
 
 
@@ -248,3 +248,107 @@ console.log(reversedNums)
 
 reversedNums.reverse()
 console.log(reversedNums)
+
+
+//.split & .join 
+let names = 'Melissa, Jolyssa, Alyssa'
+
+let namesDelim = names.split(', ')
+
+for(let name of namesDelim){
+    console.log(`A message to ${name}.`)
+}
+
+//can also put a limit on array length with 
+//a second argument
+let names2 = 'Joji, Miso, Iso'.split(', ', 2)
+
+console.log(names2)
+
+//split into letters calling .split(s) with 
+//nothing in (s)
+let str = 'test'
+
+console.log(str.split(''))
+
+//.join(glue) does reverse of split, creates
+//string of arr items joined by glue between them
+
+let things = ['bowl', 'nest', 'speaker', 'cup']
+
+let string = things.join('; ') //glue array into a string using ;
+
+console.log(string)
+
+
+//.reduce & .reduceRight
+/*syntax: arr.reduce(function(accumulator, item, index, array){
+    ...
+}, [initial])
+
+
+accumulator – is the result of the previous function call, equals initial the first time (if initial is provided).
+item – is the current array item.
+index – is its position.
+array – is the array.
+*/
+
+let newArr = [1,2,3,4,5,6,7]
+
+let result = newArr.reduce((sum, current) => sum + current, 0)
+
+console.log(result)
+
+//works if we didn't put initial value of 0
+console.log(newArr.reduce((sum, current) => sum + current))
+
+//if empty array, without inital value will give
+//an error
+//if there was an initia value, would return empty arr
+
+let emptyArr = []
+
+//let empty = emptyArr.reduce((sum, current) => sum + current)
+
+//console.log(empty)  //error
+
+console.log(emptyArr.reduce((sum, current) => sum + current, 0))
+
+//arr.reduceRight does same, but goes from right to left
+
+
+
+//Array.isArray
+//returns true if value is array, false if not
+console.log(Array.isArray({})) //false
+
+console.log(Array.isArray([])) //true
+
+
+
+//thisArg , rarely used parameter in array methods
+//that call fns, eg. find, filter, map
+
+let army = {
+    minAge: 28,
+    maxAge: 27,
+    canJoin(user){
+        return user.age >= this.minAge && user.age < this.maxAge
+    }
+}
+
+let users = [
+    {age: 16},
+    {age: 20},
+    {age: 23},
+    {age: 27},
+    {age: 30}
+]
+
+//find users, for who army.canJoin returns true
+let soldiers = users.filter(army.canJoin, army)
+
+console.log(soldiers.length)
+console.log(soldiers[0].age)
+console.log(soldiers[1].age)
+//not working idk why lol
