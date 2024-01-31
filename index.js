@@ -348,7 +348,19 @@ let users = [
 //find users, for who army.canJoin returns true
 let soldiers = users.filter(army.canJoin, army)
 
-console.log(soldiers.length)
-console.log(soldiers[0].age)
-console.log(soldiers[1].age)
+// console.log(soldiers.length)
+// console.log(soldiers[0].age)
+// console.log(soldiers[1].age)
 //not working idk why lol
+
+
+/**********CHALLENGES***********/
+
+function camelize(str){
+    return str
+    .split('-')
+    .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+    .join('')
+}
+
+camelize("background-color")
