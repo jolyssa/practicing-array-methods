@@ -360,7 +360,35 @@ function camelize(str){
     return str
     .split('-')
     .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
-    .join('')
+    .join('');
 }
 
 camelize("background-color")
+
+//
+
+let anotherArr = [5, 3, 8, 1];
+
+filterRangeInPlace(anotherArr, 1, 4); 
+alert( anotherArr ); 
+
+//
+
+let barr = [5, 2, 1, -10, 8];
+
+arr.sort((a, b) => b - a);
+
+alert(barr);
+
+//
+
+function copySorted(arr) {
+    return arr.slice().sort();
+  }
+  
+  let carr = ["HTML", "JavaScript", "CSS"];
+  
+  let sorted = copySorted(carr);
+  
+  alert( sorted );
+  alert( carr );    
